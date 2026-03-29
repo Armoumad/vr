@@ -54,20 +54,19 @@ namespace VR.Electrical.Components
                 return;
             }
 
-            if (TerminalCount >= 2 && HasValidNodes(terminal0, terminal1))
+            if (HasValidNodes(terminal0))
             {
-                matrix.StampConductance(NodeOrDefault(terminal0), NodeOrDefault(terminal1), 0.000001f);
+                matrix.StampConductance(NodeOrDefault(terminal0), -1, 0.000001f);
             }
         }
 
         public override void Step(float deltaTime, CircuitMatrix matrix)
         {
-            if (TerminalCount >= 2)
+            if (HasValidNodes(terminal0))
             {
                 float va = ReadVoltage(matrix, terminal0);
-                float vb = ReadVoltage(matrix, terminal1);
-                debugCurrentAmps = (va - vb) / Mathf.Max(0.0001f, primaryParameter);
-                debugState = va - vb;
+                debugCurrentAmps = va / Mathf.Max(0.0001f, primaryParameter);
+                debugState = va;
             }
 
             if (TerminalCount > 0)

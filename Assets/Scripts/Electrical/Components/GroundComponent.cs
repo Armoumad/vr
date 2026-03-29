@@ -59,12 +59,11 @@ namespace VR.Electrical.Components
 
         public override void Step(float deltaTime, CircuitMatrix matrix)
         {
-            if (TerminalCount >= 2)
+            if (HasValidNodes(terminal0))
             {
                 float va = ReadVoltage(matrix, terminal0);
-                float vb = ReadVoltage(matrix, terminal1);
-                debugCurrentAmps = (va - vb) / Mathf.Max(0.0001f, primaryParameter);
-                debugState = va - vb;
+                debugCurrentAmps = va / Mathf.Max(0.0001f, primaryParameter);
+                debugState = va;
             }
 
             if (TerminalCount > 0)

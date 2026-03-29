@@ -81,11 +81,11 @@ namespace VR.Electrical.Components
             bool high = vin >= logicHighThreshold;
             debugState = high ? 1f : 0f;
 
-            if (TerminalCount > 1 && HasValidNodes(terminal1))
+            if (HasValidNodes(terminal0))
             {
                 float target = high ? outputHighVoltage : outputLowVoltage;
                 float gain = 1f / Mathf.Max(0.0001f, outputImpedanceOhms);
-                matrix.StampCurrentSource(NodeOrDefault(terminal1), -1, target * gain);
+                matrix.StampCurrentSource(NodeOrDefault(terminal0), -1, target * gain);
             }
 
             if (TerminalCount > 0)

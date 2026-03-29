@@ -59,13 +59,13 @@ namespace VR.Electrical.Components
                 return;
             }
 
-            if (TerminalCount < 2 || !HasValidNodes(terminal0, terminal1))
+            if (!HasValidNodes(terminal0))
             {
                 return;
             }
 
-            float sourceCurrent = sourceVoltageVolts / Mathf.Max(0.0001f, sourceImpedanceOhms);
-            matrix.StampCurrentSource(NodeOrDefault(terminal0), NodeOrDefault(terminal1), sourceCurrent);
+            float sourceCurrent = sourceVoltageVolts / Mathf.Max(0.0001f, outputImpedanceOhms);
+            matrix.StampCurrentSource(NodeOrDefault(terminal0), -1, sourceCurrent);
         }
 
         public override void Step(float deltaTime, CircuitMatrix matrix)

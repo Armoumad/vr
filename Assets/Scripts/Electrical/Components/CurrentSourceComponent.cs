@@ -67,7 +67,7 @@ namespace VR.Electrical.Components
                 return;
             }
 
-            float sourceCurrent = sourceVoltageVolts / Mathf.Max(0.0001f, sourceImpedanceOhms);
+            float sourceCurrent = sourceVoltageVolts / Mathf.Max(0.0001f, outputImpedanceOhms);
             matrix.StampCurrentSource(NodeOrDefault(terminal0), NodeOrDefault(terminal1), sourceCurrent);
         }
 
