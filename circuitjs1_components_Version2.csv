@@ -1,0 +1,136 @@
+Category,Component,Description,Source File,GitHub Link
+Passive Components,Resistor,Resistance element,ResistorElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/ResistorElm.java
+Passive Components,Capacitor,Capacitance element,CapacitorElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CapacitorElm.java
+Passive Components,Polar Capacitor,Electrolytic capacitor,PolarCapacitorElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/PolarCapacitorElm.java
+Passive Components,Inductor,Inductance element,InductorElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/InductorElm.java
+Passive Components,Potentiometer,Variable resistor (3 terminals),PotElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/PotElm.java
+Passive Components,Memristor,Memory resistor,MemristorElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/MemristorElm.java
+Passive Components,Spark Gap,Spark gap element,SparkGapElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/SparkGapElm.java
+Passive Components,Fuse,Fuse protection element,FuseElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/FuseElm.java
+Passive Components,Crystal,Quartz crystal oscillator,CrystalElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CrystalElm.java
+Passive Components,Thermistor NTC,Negative temperature coefficient,ThermistorNTCElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/ThermistorNTCElm.java
+Passive Components,LDR,Light Dependent Resistor,LDRElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/LDRElm.java
+Diodes & Semiconductors,Diode,Standard diode,DiodeElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/DiodeElm.java
+Diodes & Semiconductors,Zener Diode,Voltage regulator diode,ZenerElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/ZenerElm.java
+Diodes & Semiconductors,LED,Light Emitting Diode,LEDElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/LEDElm.java
+Diodes & Semiconductors,LED Array,Multiple LEDs,LEDArrayElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/LEDArrayElm.java
+Diodes & Semiconductors,Tunnel Diode,Tunnel diode (negative resistance),TunnelDiodeElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/TunnelDiodeElm.java
+Diodes & Semiconductors,Varactor,Variable capacitance diode,VaractorElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/VaractorElm.java
+Diodes & Semiconductors,SCR,Silicon Controlled Rectifier (Thyristor),SCRElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/SCRElm.java
+Diodes & Semiconductors,DIAC,Bidirectional trigger diode,DiacElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/DiacElm.java
+Diodes & Semiconductors,TRIAC,Bidirectional thyristor,TriacElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/TriacElm.java
+Transistors,NPN Transistor,NPN BJT,NTransistorElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/NTransistorElm.java
+Transistors,PNP Transistor,PNP BJT,PTransistorElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/PTransistorElm.java
+Transistors,N-MOSFET,N-channel MOSFET,NMosfetElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/NMosfetElm.java
+Transistors,P-MOSFET,P-channel MOSFET,PMosfetElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/PMosfetElm.java
+Transistors,N-JFET,N-channel JFET,NJfetElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/NJfetElm.java
+Transistors,Darlington (NPN),NPN Darlington pair,NDarlingtonElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/NDarlingtonElm.java
+Transistors,Darlington (PNP),PNP Darlington pair,PDarlingtonElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/PDarlingtonElm.java
+Transistors,Unijunction Transistor,UJT,UnijunctionElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/UnijunctionElm.java
+Voltage & Current Sources,DC Voltage Source,DC voltage,DCVoltageElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/DCVoltageElm.java
+Voltage & Current Sources,AC Voltage Source,AC voltage,ACVoltageElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/ACVoltageElm.java
+Voltage & Current Sources,Current Source,Ideal current source,CurrentElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CurrentElm.java
+Voltage & Current Sources,Rail (DC),Voltage rail (1-terminal),RailElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/RailElm.java
+Voltage & Current Sources,AC Rail,AC voltage rail,ACRailElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/ACRailElm.java
+Voltage & Current Sources,Square Rail,Square wave rail,SquareRailElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/SquareRailElm.java
+Voltage & Current Sources,Variable Rail,Variable voltage rail,VarRailElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/VarRailElm.java
+Voltage & Current Sources,Antenna,Antenna source,AntennaElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/AntennaElm.java
+Voltage & Current Sources,Noise Source,White noise generator,NoiseElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/NoiseElm.java
+Voltage & Current Sources,AM Source,Amplitude modulation,AMElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/AMElm.java
+Voltage & Current Sources,FM Source,Frequency modulation,FMElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/FMElm.java
+Voltage & Current Sources,Sweep,Frequency sweep generator,SweepElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/SweepElm.java
+Voltage & Current Sources,External Voltage,External voltage input,ExtVoltageElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/ExtVoltageElm.java
+Switches,Switch (SPST),Single pole single throw,SwitchElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/SwitchElm.java
+Switches,Switch (SPDT),Single pole double throw,Switch2Elm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/Switch2Elm.java
+Switches,Push Switch,Momentary push button,PushSwitchElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/PushSwitchElm.java
+Switches,DPDT Switch,Double pole double throw,DPDTSwitchElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/DPDTSwitchElm.java
+Switches,MBB Switch,Make-before-break switch,MBBSwitchElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/MBBSwitchElm.java
+Switches,Cross Switch,Crossover switch,CrossSwitchElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CrossSwitchElm.java
+Switches,Analog Switch,Voltage-controlled switch,AnalogSwitchElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/AnalogSwitchElm.java
+Switches,Analog Switch 2,2-way analog switch,AnalogSwitch2Elm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/AnalogSwitch2Elm.java
+Transformers & Coupled,Transformer,Ideal transformer,TransformerElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/TransformerElm.java
+Transformers & Coupled,Tapped Transformer,Center-tapped transformer,TappedTransformerElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/TappedTransformerElm.java
+Transformers & Coupled,Custom Transformer,Multi-winding transformer,CustomTransformerElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CustomTransformerElm.java
+Transformers & Coupled,Transmission Line,Lossless transmission line,TransLineElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/TransLineElm.java
+Transformers & Coupled,Relay,Electromagnetic relay,RelayElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/RelayElm.java
+Transformers & Coupled,Relay Coil,Relay coil element,RelayCoilElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/RelayCoilElm.java
+Transformers & Coupled,Relay Contact,Relay contact element,RelayContactElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/RelayContactElm.java
+Transformers & Coupled,Time Delay Relay,Delay-on relay,TimeDelayRelayElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/TimeDelayRelayElm.java
+Transformers & Coupled,Optocoupler,Optical coupling,OptocouplerElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/OptocouplerElm.java
+Op-Amps & Active Analog,Op-Amp (Ideal),Ideal operational amplifier,OpAmpElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/OpAmpElm.java
+Op-Amps & Active Analog,Op-Amp (Real),Real op-amp with parasitics,OpAmpRealElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/OpAmpRealElm.java
+Op-Amps & Active Analog,Op-Amp Swap,Swapped-input op-amp,OpAmpSwapElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/OpAmpSwapElm.java
+Op-Amps & Active Analog,OTA,Operational Transconductance Amplifier,OTAElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/OTAElm.java
+Op-Amps & Active Analog,Comparator,Voltage comparator,ComparatorElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/ComparatorElm.java
+Op-Amps & Active Analog,CC2 (CCII+),Current Conveyor II,CC2Elm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CC2Elm.java
+Op-Amps & Active Analog,Triode,Vacuum tube triode,TriodeElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/TriodeElm.java
+Dependent Sources,VCCS,Voltage-Controlled Current Source,VCCSElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/VCCSElm.java
+Dependent Sources,VCVS,Voltage-Controlled Voltage Source,VCVSElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/VCVSElm.java
+Dependent Sources,CCCS,Current-Controlled Current Source,CCCSElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CCCSElm.java
+Dependent Sources,CCVS,Current-Controlled Voltage Source,CCVSElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CCVSElm.java
+Dependent Sources,VCO,Voltage-Controlled Oscillator,VCOElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/VCOElm.java
+Digital Logic Gates,AND Gate,AND logic,AndGateElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/AndGateElm.java
+Digital Logic Gates,NAND Gate,NAND logic,NandGateElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/NandGateElm.java
+Digital Logic Gates,OR Gate,OR logic,OrGateElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/OrGateElm.java
+Digital Logic Gates,NOR Gate,NOR logic,NorGateElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/NorGateElm.java
+Digital Logic Gates,XOR Gate,XOR logic,XorGateElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/XorGateElm.java
+Digital Logic Gates,Inverter,NOT gate (digital),InverterElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/InverterElm.java
+Digital Logic Gates,Tri-State Buffer,3-state buffer,TriStateElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/TriStateElm.java
+Digital Logic Gates,Schmitt Trigger,Schmitt trigger,SchmittElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/SchmittElm.java
+Digital Logic Gates,Inverting Schmitt,Inverting Schmitt trigger,InvertingSchmittElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/InvertingSchmittElm.java
+Digital Logic Gates,Logic Input,Digital input (0/1),LogicInputElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/LogicInputElm.java
+Digital Logic Gates,Logic Output,Digital output,LogicOutputElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/LogicOutputElm.java
+Digital ICs & Flip-Flops,D Flip-Flop,D-type flip-flop,DFlipFlopElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/DFlipFlopElm.java
+Digital ICs & Flip-Flops,JK Flip-Flop,JK-type flip-flop,JKFlipFlopElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/JKFlipFlopElm.java
+Digital ICs & Flip-Flops,T Flip-Flop,Toggle flip-flop,TFlipFlopElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/TFlipFlopElm.java
+Digital ICs & Flip-Flops,Counter,Binary counter,CounterElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CounterElm.java
+Digital ICs & Flip-Flops,Counter 2,Decade counter,Counter2Elm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/Counter2Elm.java
+Digital ICs & Flip-Flops,Ring Counter,Ring counter (Johnson),RingCounterElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/RingCounterElm.java
+Digital ICs & Flip-Flops,Latch,Data latch,LatchElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/LatchElm.java
+Digital ICs & Flip-Flops,Timer (555),555 Timer IC,TimerElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/TimerElm.java
+Digital ICs & Flip-Flops,DAC,Digital-to-Analog Converter,DACElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/DACElm.java
+Digital ICs & Flip-Flops,ADC,Analog-to-Digital Converter,ADCElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/ADCElm.java
+Digital ICs & Flip-Flops,SRAM,Static RAM memory,SRAMElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/SRAMElm.java
+Digital ICs & Flip-Flops,Seven Segment,7-segment display,SevenSegElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/SevenSegElm.java
+Digital ICs & Flip-Flops,7-Seg Decoder,7-segment decoder,SevenSegDecoderElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/SevenSegDecoderElm.java
+Digital ICs & Flip-Flops,Half Adder,1-bit half adder,HalfAdderElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/HalfAdderElm.java
+Digital ICs & Flip-Flops,Full Adder,1-bit full adder,FullAdderElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/FullAdderElm.java
+Digital ICs & Flip-Flops,Multiplexer,Data multiplexer,MultiplexerElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/MultiplexerElm.java
+Digital ICs & Flip-Flops,Demultiplexer,Data demultiplexer,DeMultiplexerElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/DeMultiplexerElm.java
+Digital ICs & Flip-Flops,SIPO Shift Register,Serial-in/Parallel-out,SipoShiftElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/SipoShiftElm.java
+Digital ICs & Flip-Flops,PISO Shift Register,Parallel-in/Serial-out,PisoShiftElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/PisoShiftElm.java
+Digital ICs & Flip-Flops,Phase Comparator,Phase comparator,PhaseCompElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/PhaseCompElm.java
+Digital ICs & Flip-Flops,Monostable,One-shot/monostable,MonostableElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/MonostableElm.java
+Digital ICs & Flip-Flops,Sequence Generator,Bit sequence generator,SeqGenElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/SeqGenElm.java
+Digital ICs & Flip-Flops,Custom Logic,User-defined logic,CustomLogicElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CustomLogicElm.java
+Digital ICs & Flip-Flops,Decimal Display,Decimal number display,DecimalDisplayElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/DecimalDisplayElm.java
+Digital ICs & Flip-Flops,Delay Buffer,Digital delay line,DelayBufferElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/DelayBufferElm.java
+Motors,DC Motor,DC motor,DCMotorElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/DCMotorElm.java
+Motors,3-Phase Motor,Three-phase induction motor,ThreePhaseMotorElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/ThreePhaseMotorElm.java
+Motors,Motor Protection Switch,Motor protection circuit breaker,MotorProtectionSwitchElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/MotorProtectionSwitchElm.java
+Measurement & Output,Probe,Voltage probe,ProbeElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/ProbeElm.java
+Measurement & Output,Test Point,Test point / measurement,TestPointElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/TestPointElm.java
+Measurement & Output,Ammeter,Current meter,AmmeterElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/AmmeterElm.java
+Measurement & Output,Ohm Meter,Resistance meter,OhmMeterElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/OhmMeterElm.java
+Measurement & Output,Wattmeter,Power meter,WattmeterElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/WattmeterElm.java
+Measurement & Output,Output,Analog output post,OutputElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/OutputElm.java
+Measurement & Output,Data Recorder,Data recording,DataRecorderElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/DataRecorderElm.java
+Measurement & Output,Data Input,Data playback,DataInputElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/DataInputElm.java
+Measurement & Output,Audio Output,Speaker/audio output,AudioOutputElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/AudioOutputElm.java
+Measurement & Output,Audio Input,Microphone/audio input,AudioInputElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/AudioInputElm.java
+Measurement & Output,Stop Trigger,Simulation stop trigger,StopTriggerElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/StopTriggerElm.java
+Measurement & Output,Scope,Oscilloscope display,ScopeElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/ScopeElm.java
+Measurement & Output,Lamp,Incandescent lamp,LampElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/LampElm.java
+Wiring & Layout,Wire,Simple wire connection,WireElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/WireElm.java
+Wiring & Layout,Ground,Ground connection,GroundElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/GroundElm.java
+Wiring & Layout,Labeled Node,Named wire junction,LabeledNodeElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/LabeledNodeElm.java
+Wiring & Layout,Text,Text annotation,TextElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/TextElm.java
+Wiring & Layout,Box,Rectangular box annotation,BoxElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/BoxElm.java
+Wiring & Layout,Line,Line annotation,LineElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/LineElm.java
+Wiring & Layout,Clock,Digital clock source,ClockElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/ClockElm.java
+Composite / Subcircuit,Composite Element,Composite subcircuit base,CompositeElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CompositeElm.java
+Composite / Subcircuit,Custom Composite,User-defined composite,CustomCompositeElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CustomCompositeElm.java
+Composite / Subcircuit,Custom Composite Chip,Custom composite as chip,CustomCompositeChipElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CustomCompositeChipElm.java
+Base / Core Classes,CircuitElm,Abstract base class for ALL elements,CircuitElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CircuitElm.java
+Base / Core Classes,GraphicElm,Non-circuit graphic element base,GraphicElm.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/GraphicElm.java
+Base / Core Classes,CirSim,Main simulator engine,CirSim.java,https://github.com/pfalstad/circuitjs1/blob/master/src/com/lushprojects/circuitjs1/client/CirSim.java
