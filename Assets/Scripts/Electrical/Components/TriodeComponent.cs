@@ -87,6 +87,8 @@ namespace VR.Electrical.Components
             float gridVoltage = ReadVoltage(matrix, terminal1);
             float cathodeVoltage = ReadVoltage(matrix, terminal2);
             float gridCathode = gridVoltage - cathodeVoltage;
+            // Simplified triode drive proxy:
+            // combine grid-to-cathode control voltage with scaled plate-to-cathode contribution.
             float plateCurrent = triodeGain * Mathf.Max(0f, gridCathode + (plateVoltage - cathodeVoltage) / triodeMu);
 
             matrix.StampConductance(plateNode, cathodeNode, plateConductance);

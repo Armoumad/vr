@@ -106,7 +106,7 @@ namespace VR.Electrical.Components
             {
                 float target = high ? outputHighVoltage : outputLowVoltage;
                 float gain = 1f / Mathf.Max(0.0001f, outputImpedanceOhms);
-                matrix.StampCurrentSource(NodeOrDefault(terminal1), terminal0, target * gain);
+                matrix.StampCurrentSource(NodeOrDefault(terminal1), NodeOrDefault(terminal0), target * gain);
             }
 
             if (TerminalCount > 0)

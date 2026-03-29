@@ -64,11 +64,9 @@ namespace VR.Electrical.Components
             openLoopGain = Mathf.Max(1f, openLoopGain);
             positiveRailVoltage = Mathf.Clamp(positiveRailVoltage, -1000f, 1000f);
             negativeRailVoltage = Mathf.Clamp(negativeRailVoltage, -1000f, 1000f);
-            if (negativeRailVoltage > positiveRailVoltage)
+            if (Mathf.Approximately(positiveRailVoltage, negativeRailVoltage))
             {
-                float swap = negativeRailVoltage;
-                negativeRailVoltage = positiveRailVoltage;
-                positiveRailVoltage = swap;
+                positiveRailVoltage += 0.001f;
             }
         }
 
@@ -92,7 +90,9 @@ namespace VR.Electrical.Components
             float vp = ReadVoltage(matrix, terminal0);
             float vn = ReadVoltage(matrix, terminal1);
             float differential = vp - vn;
-            float commandedOutput = Mathf.Clamp(differential * openLoopGain, negativeRailVoltage, positiveRailVoltage);
+            float lowerRail = Mathf.Min(negativeRailVoltage, positiveRailVoltage);
+            float upperRail = Mathf.Max(negativeRailVoltage, positiveRailVoltage);
+            float commandedOutput = Mathf.Clamp(differential * openLoopGain, lowerRail, upperRail);
             float outputConductance = 1f / Mathf.Max(0.0001f, outputImpedanceOhms);
             int outputNode = NodeOrDefault(terminal2);
 
@@ -107,7 +107,9 @@ namespace VR.Electrical.Components
                 float va = ReadVoltage(matrix, terminal0);
                 float vb = ReadVoltage(matrix, terminal1);
                 float differential = va - vb;
-                float commandedOutput = Mathf.Clamp(differential * openLoopGain, negativeRailVoltage, positiveRailVoltage);
+                float lowerRail = Mathf.Min(negativeRailVoltage, positiveRailVoltage);
+                float upperRail = Mathf.Max(negativeRailVoltage, positiveRailVoltage);
+                float commandedOutput = Mathf.Clamp(differential * openLoopGain, lowerRail, upperRail);
                 debugCurrentAmps = commandedOutput / Mathf.Max(0.0001f, outputImpedanceOhms);
                 debugState = differential;
             }

@@ -11,8 +11,8 @@ namespace VR.Electrical.Components
     public class CapacitorComponent : ElectricalComponentBase
     {
 [Header("Model Parameters")]
-[Tooltip("Primary model parameter (ohms, gain, or equivalent scalar)")]
-[SerializeField] private float primaryParameter = 1000f;
+[Tooltip("Capacitance in farads")]
+[SerializeField] private float capacitanceFarads = 0.000001f;
 
 [Tooltip("Secondary model parameter used for simplified parity")]
 [SerializeField] private float secondaryParameter = 1f;
@@ -21,7 +21,10 @@ namespace VR.Electrical.Components
 [SerializeField] private float outputImpedanceOhms = 1000f;
 
 [Tooltip("Last capacitor voltage for stable companion stamping")]
-[SerializeField] private float previousVoltage;
+[SerializeField] private float previousCapacitorVoltage;
+
+[Tooltip("Last simulation timestep received from Step()")]
+[SerializeField] private float lastStepDeltaTime = 0.02f;
 
         [Tooltip("Terminal index 0")]
         [SerializeField] private int terminal0 = 0;
@@ -48,9 +51,10 @@ namespace VR.Electrical.Components
         public override void OnValidate()
         {
             base.OnValidate();
-            primaryParameter = Mathf.Max(0.0001f, primaryParameter);
+            capacitanceFarads = Mathf.Max(0.000000000001f, capacitanceFarads);
             secondaryParameter = Mathf.Max(0f, secondaryParameter);
             outputImpedanceOhms = Mathf.Max(0.0001f, outputImpedanceOhms);
+            lastStepDeltaTime = Mathf.Max(0.000001f, lastStepDeltaTime);
         }
 
         public override void Stamp(CircuitMatrix matrix)
@@ -65,10 +69,9 @@ namespace VR.Electrical.Components
                 return;
             }
 
-            float dt = Mathf.Max(Time.fixedDeltaTime, 0.0001f);
-            float capacitanceFarads = Mathf.Max(0.000000000001f, primaryParameter);
+            float dt = Mathf.Max(lastStepDeltaTime, 0.000001f);
             float companionConductance = (2f * capacitanceFarads) / dt;
-            float companionCurrent = companionConductance * previousVoltage;
+            float companionCurrent = companionConductance * previousCapacitorVoltage;
             int nodeA = NodeOrDefault(terminal0);
             int nodeB = NodeOrDefault(terminal1);
 
@@ -78,13 +81,19 @@ namespace VR.Electrical.Components
 
         public override void Step(float deltaTime, CircuitMatrix matrix)
         {
+            if (deltaTime > 0f)
+            {
+                lastStepDeltaTime = deltaTime;
+            }
+
             if (TerminalCount >= 2)
             {
                 float va = ReadVoltage(matrix, terminal0);
                 float vb = ReadVoltage(matrix, terminal1);
                 float dv = va - vb;
-                previousVoltage = dv;
-                debugCurrentAmps = dv / Mathf.Max(0.0001f, outputImpedanceOhms);
+                float dt = Mathf.Max(lastStepDeltaTime, 0.000001f);
+                debugCurrentAmps = capacitanceFarads * ((dv - previousCapacitorVoltage) / dt);
+                previousCapacitorVoltage = dv;
                 debugState = dv;
             }
 

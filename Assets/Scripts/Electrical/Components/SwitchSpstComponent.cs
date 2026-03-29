@@ -65,6 +65,10 @@ public void Toggle()
             outputImpedanceOhms = Mathf.Max(0.0001f, outputImpedanceOhms);
             onResistanceOhms = Mathf.Clamp(onResistanceOhms, 0.000001f, 1000f);
             offResistanceOhms = Mathf.Max(1000f, offResistanceOhms);
+            if (offResistanceOhms <= onResistanceOhms)
+            {
+                offResistanceOhms = onResistanceOhms * 1000f;
+            }
         }
 
         public override void Stamp(CircuitMatrix matrix)
