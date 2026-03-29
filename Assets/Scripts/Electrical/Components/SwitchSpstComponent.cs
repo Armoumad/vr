@@ -24,6 +24,12 @@ namespace VR.Electrical.Components
 [Tooltip("True selects alternate conducting path")]
 [SerializeField] private bool state;
 
+[Tooltip("Closed-contact resistance (ohms)")]
+[SerializeField] private float onResistanceOhms = 0.001f;
+
+[Tooltip("Open-contact resistance (ohms)")]
+[SerializeField] private float offResistanceOhms = 1000000000f;
+
         [Tooltip("Terminal index 0")]
         [SerializeField] private int terminal0 = 0;
 
@@ -57,6 +63,8 @@ public void Toggle()
             primaryParameter = Mathf.Max(0.0001f, primaryParameter);
             secondaryParameter = Mathf.Max(0f, secondaryParameter);
             outputImpedanceOhms = Mathf.Max(0.0001f, outputImpedanceOhms);
+            onResistanceOhms = Mathf.Clamp(onResistanceOhms, 0.000001f, 1000f);
+            offResistanceOhms = Mathf.Max(1000f, offResistanceOhms);
         }
 
         public override void Stamp(CircuitMatrix matrix)
@@ -71,7 +79,8 @@ public void Toggle()
                 return;
             }
 
-            float conductance = state ? 1000f : 0.000001f;
+            float resistance = state ? onResistanceOhms : offResistanceOhms;
+            float conductance = 1f / resistance;
             matrix.StampConductance(NodeOrDefault(terminal0), NodeOrDefault(terminal1), conductance);
             debugState = state ? 1f : 0f;
         }

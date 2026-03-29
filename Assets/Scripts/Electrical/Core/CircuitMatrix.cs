@@ -25,6 +25,11 @@ namespace VR.Electrical.Core
             debugStamps.Add(comment);
         }
 
+        public void StampGround(int node)
+        {
+            debugStamps.Add($"GND({node})");
+        }
+
         public float ReadNodeVoltage(int node)
         {
             return 0f;

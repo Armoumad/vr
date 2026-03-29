@@ -90,7 +90,7 @@ namespace VR.Electrical.Components
                 return;
             }
 
-            matrix.StampComment($"Digital model stamp for {Kind}");
+            matrix.StampConductance(NodeOrDefault(terminal0), -1, 0.000001f);
         }
 
         public override void Step(float deltaTime, CircuitMatrix matrix)
@@ -103,7 +103,7 @@ namespace VR.Electrical.Components
             {
                 float target = high ? outputHighVoltage : outputLowVoltage;
                 float gain = 1f / Mathf.Max(0.0001f, outputImpedanceOhms);
-                matrix.StampCurrentSource(NodeOrDefault(terminal1), -1, target * gain);
+                matrix.StampCurrentSource(NodeOrDefault(terminal1), terminal0, target * gain);
             }
 
             if (TerminalCount > 0)

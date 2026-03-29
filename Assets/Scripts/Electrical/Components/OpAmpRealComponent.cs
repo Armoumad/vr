@@ -20,6 +20,16 @@ namespace VR.Electrical.Components
 [Tooltip("Output/source impedance in ohms")]
 [SerializeField] private float outputImpedanceOhms = 1000f;
 
+[Header("Op-Amp Limits")]
+[Tooltip("Open-loop gain used for differential amplification")]
+[SerializeField] private float openLoopGain = 100000f;
+
+[Tooltip("Positive saturation rail in volts")]
+[SerializeField] private float positiveRailVoltage = 12f;
+
+[Tooltip("Negative saturation rail in volts")]
+[SerializeField] private float negativeRailVoltage = -12f;
+
         [Tooltip("Terminal index 0")]
         [SerializeField] private int terminal0 = 0;
 
@@ -51,6 +61,15 @@ namespace VR.Electrical.Components
             primaryParameter = Mathf.Max(0.0001f, primaryParameter);
             secondaryParameter = Mathf.Max(0f, secondaryParameter);
             outputImpedanceOhms = Mathf.Max(0.0001f, outputImpedanceOhms);
+            openLoopGain = Mathf.Max(1f, openLoopGain);
+            positiveRailVoltage = Mathf.Clamp(positiveRailVoltage, -1000f, 1000f);
+            negativeRailVoltage = Mathf.Clamp(negativeRailVoltage, -1000f, 1000f);
+            if (negativeRailVoltage > positiveRailVoltage)
+            {
+                float swap = negativeRailVoltage;
+                negativeRailVoltage = positiveRailVoltage;
+                positiveRailVoltage = swap;
+            }
         }
 
         public override void Stamp(CircuitMatrix matrix)
@@ -65,21 +84,32 @@ namespace VR.Electrical.Components
                 return;
             }
 
-            float conductance = 1f / Mathf.Max(0.0001f, primaryParameter);
-            matrix.StampConductance(NodeOrDefault(terminal0), NodeOrDefault(terminal1), conductance);
+            if (!HasValidNodes(terminal0, terminal1, terminal2))
+            {
+                return;
+            }
 
-                        // TODO(parity): refine multi-pin coupling from CircuitJS1 model.
-                        if (HasValidNodes(terminal0, terminal2)) matrix.StampConductance(NodeOrDefault(terminal0), NodeOrDefault(terminal2), conductance * 0.25f);
+            float vp = ReadVoltage(matrix, terminal0);
+            float vn = ReadVoltage(matrix, terminal1);
+            float differential = vp - vn;
+            float commandedOutput = Mathf.Clamp(differential * openLoopGain, negativeRailVoltage, positiveRailVoltage);
+            float outputConductance = 1f / Mathf.Max(0.0001f, outputImpedanceOhms);
+            int outputNode = NodeOrDefault(terminal2);
+
+            matrix.StampConductance(outputNode, -1, outputConductance);
+            matrix.StampCurrentSource(outputNode, -1, commandedOutput * outputConductance);
         }
 
         public override void Step(float deltaTime, CircuitMatrix matrix)
         {
-            if (TerminalCount >= 2)
+            if (TerminalCount >= 3)
             {
                 float va = ReadVoltage(matrix, terminal0);
                 float vb = ReadVoltage(matrix, terminal1);
-                debugCurrentAmps = (va - vb) / Mathf.Max(0.0001f, primaryParameter);
-                debugState = va - vb;
+                float differential = va - vb;
+                float commandedOutput = Mathf.Clamp(differential * openLoopGain, negativeRailVoltage, positiveRailVoltage);
+                debugCurrentAmps = commandedOutput / Mathf.Max(0.0001f, outputImpedanceOhms);
+                debugState = differential;
             }
 
             if (TerminalCount > 0)

@@ -20,6 +20,9 @@ namespace VR.Electrical.Components
 [Tooltip("Output/source impedance in ohms")]
 [SerializeField] private float outputImpedanceOhms = 1000f;
 
+[Tooltip("Last capacitor voltage for stable companion stamping")]
+[SerializeField] private float previousVoltage;
+
         [Tooltip("Terminal index 0")]
         [SerializeField] private int terminal0 = 0;
 
@@ -62,8 +65,15 @@ namespace VR.Electrical.Components
                 return;
             }
 
-            float conductance = 1f / Mathf.Max(0.0001f, primaryParameter);
-            matrix.StampConductance(NodeOrDefault(terminal0), NodeOrDefault(terminal1), conductance);
+            float dt = Mathf.Max(Time.fixedDeltaTime, 0.0001f);
+            float capacitanceFarads = Mathf.Max(0.000000000001f, primaryParameter);
+            float companionConductance = (2f * capacitanceFarads) / dt;
+            float companionCurrent = companionConductance * previousVoltage;
+            int nodeA = NodeOrDefault(terminal0);
+            int nodeB = NodeOrDefault(terminal1);
+
+            matrix.StampConductance(nodeA, nodeB, companionConductance);
+            matrix.StampCurrentSource(nodeA, nodeB, companionCurrent);
         }
 
         public override void Step(float deltaTime, CircuitMatrix matrix)
@@ -72,8 +82,10 @@ namespace VR.Electrical.Components
             {
                 float va = ReadVoltage(matrix, terminal0);
                 float vb = ReadVoltage(matrix, terminal1);
-                debugCurrentAmps = (va - vb) / Mathf.Max(0.0001f, primaryParameter);
-                debugState = va - vb;
+                float dv = va - vb;
+                previousVoltage = dv;
+                debugCurrentAmps = dv / Mathf.Max(0.0001f, outputImpedanceOhms);
+                debugState = dv;
             }
 
             if (TerminalCount > 0)
