@@ -54,7 +54,12 @@ namespace VR.Electrical.Components
                 return;
             }
 
-            matrix.StampComment("TODO(parity): component behavior not yet specialized.");
+            if (!HasValidNodes(terminal0))
+            {
+                return;
+            }
+
+            matrix.StampGround(NodeOrDefault(terminal0));
         }
 
         public override void Step(float deltaTime, CircuitMatrix matrix)

@@ -20,6 +20,13 @@ namespace VR.Electrical.Components
 [Tooltip("Output/source impedance in ohms")]
 [SerializeField] private float outputImpedanceOhms = 1000f;
 
+[Header("Triode Model")]
+[Tooltip("Triode amplification factor (mu)")]
+[SerializeField] private float triodeMu = 20f;
+
+[Tooltip("Triode transconductance scalar")]
+[SerializeField] private float triodeGain = 0.002f;
+
         [Tooltip("Terminal index 0")]
         [SerializeField] private int terminal0 = 0;
 
@@ -51,6 +58,8 @@ namespace VR.Electrical.Components
             primaryParameter = Mathf.Max(0.0001f, primaryParameter);
             secondaryParameter = Mathf.Max(0f, secondaryParameter);
             outputImpedanceOhms = Mathf.Max(0.0001f, outputImpedanceOhms);
+            triodeMu = Mathf.Max(0.1f, triodeMu);
+            triodeGain = Mathf.Max(0.000001f, triodeGain);
         }
 
         public override void Stamp(CircuitMatrix matrix)
@@ -65,21 +74,36 @@ namespace VR.Electrical.Components
                 return;
             }
 
-            float conductance = 1f / Mathf.Max(0.0001f, primaryParameter);
-            matrix.StampConductance(NodeOrDefault(terminal0), NodeOrDefault(terminal1), conductance);
+            if (!HasValidNodes(terminal0, terminal1, terminal2))
+            {
+                return;
+            }
 
-                        // TODO(parity): refine multi-pin coupling from CircuitJS1 model.
-                        if (HasValidNodes(terminal0, terminal2)) matrix.StampConductance(NodeOrDefault(terminal0), NodeOrDefault(terminal2), conductance * 0.25f);
+            int plateNode = NodeOrDefault(terminal0);
+            int gridNode = NodeOrDefault(terminal1);
+            int cathodeNode = NodeOrDefault(terminal2);
+            float plateConductance = 1f / Mathf.Max(0.0001f, outputImpedanceOhms);
+            float plateVoltage = ReadVoltage(matrix, terminal0);
+            float gridVoltage = ReadVoltage(matrix, terminal1);
+            float cathodeVoltage = ReadVoltage(matrix, terminal2);
+            float gridCathode = gridVoltage - cathodeVoltage;
+            // Simplified triode drive proxy:
+            // combine grid-to-cathode control voltage with scaled plate-to-cathode contribution.
+            float plateCurrent = triodeGain * Mathf.Max(0f, gridCathode + (plateVoltage - cathodeVoltage) / triodeMu);
+
+            matrix.StampConductance(plateNode, cathodeNode, plateConductance);
+            matrix.StampCurrentSource(plateNode, cathodeNode, plateCurrent);
         }
 
         public override void Step(float deltaTime, CircuitMatrix matrix)
         {
-            if (TerminalCount >= 2)
+            if (TerminalCount >= 3)
             {
                 float va = ReadVoltage(matrix, terminal0);
                 float vb = ReadVoltage(matrix, terminal1);
-                debugCurrentAmps = (va - vb) / Mathf.Max(0.0001f, primaryParameter);
-                debugState = va - vb;
+                float vc = ReadVoltage(matrix, terminal2);
+                debugCurrentAmps = triodeGain * Mathf.Max(0f, (vb - vc) + (va - vc) / triodeMu);
+                debugState = vb - vc;
             }
 
             if (TerminalCount > 0)

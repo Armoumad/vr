@@ -57,10 +57,7 @@ namespace VR.Electrical.Components
                 return;
             }
 
-            if (TerminalCount >= 2 && HasValidNodes(terminal0, terminal1))
-            {
-                matrix.StampConductance(NodeOrDefault(terminal0), NodeOrDefault(terminal1), 0.000001f);
-            }
+            // Read-only measurement component. No matrix stamping.
         }
 
         public override void Step(float deltaTime, CircuitMatrix matrix)

@@ -11,8 +11,8 @@ namespace VR.Electrical.Components
     public class ResistorComponent : ElectricalComponentBase
     {
 [Header("Model Parameters")]
-[Tooltip("Primary model parameter (ohms, gain, or equivalent scalar)")]
-[SerializeField] private float primaryParameter = 1000f;
+[Tooltip("Resistance in ohms")]
+[SerializeField] private float resistanceOhms = 1000f;
 
 [Tooltip("Secondary model parameter used for simplified parity")]
 [SerializeField] private float secondaryParameter = 1f;
@@ -45,7 +45,7 @@ namespace VR.Electrical.Components
         public override void OnValidate()
         {
             base.OnValidate();
-            primaryParameter = Mathf.Max(0.0001f, primaryParameter);
+            resistanceOhms = Mathf.Max(0.0001f, resistanceOhms);
             secondaryParameter = Mathf.Max(0f, secondaryParameter);
             outputImpedanceOhms = Mathf.Max(0.0001f, outputImpedanceOhms);
         }
@@ -62,7 +62,7 @@ namespace VR.Electrical.Components
                 return;
             }
 
-            float conductance = 1f / Mathf.Max(0.0001f, primaryParameter);
+            float conductance = 1f / resistanceOhms;
             matrix.StampConductance(NodeOrDefault(terminal0), NodeOrDefault(terminal1), conductance);
         }
 
@@ -72,7 +72,7 @@ namespace VR.Electrical.Components
             {
                 float va = ReadVoltage(matrix, terminal0);
                 float vb = ReadVoltage(matrix, terminal1);
-                debugCurrentAmps = (va - vb) / Mathf.Max(0.0001f, primaryParameter);
+                debugCurrentAmps = (va - vb) / resistanceOhms;
                 debugState = va - vb;
             }
 
